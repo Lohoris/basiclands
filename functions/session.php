@@ -1,13 +1,5 @@
 <?php
 
-function start_session () {
-	global $COOKIE_NAME,$COOKIE_LIFE,$COOKIE_PATH,$DOMAIN;
-	
-	session_name($COOKIE_NAME);
-	session_set_cookie_params($COOKIE_LIFE,$COOKIE_PATH,$DOMAIN);
-	session_start();
-}
-
 function get_logged_user () {
 	global $PAGE_TYPE;
 	$DEBUG=FALSE;

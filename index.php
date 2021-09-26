@@ -80,5 +80,5 @@ try {
 	$germ->p8015($LIBURL.'css.gif','http://jigsaw.w3.org/css-validator/check/referer?profile=css3');
 }
 catch ( Exception $ex ) {
-	// TODO;
+	print_re($ex);
 }
