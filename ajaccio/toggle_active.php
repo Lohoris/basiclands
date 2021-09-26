@@ -23,7 +23,7 @@ else {
 
 $db->begin() or diesql("Couldn't start transaction");
 
-$query="UPDATE {$OP}$table SET active=1-active WHERE id=$id";
+$query="UPDATE $table SET active=1-active WHERE id=$id";
 mysql_query($query) or diesql("Couldn't toggle active on $what:$id");
 
 $db->commit() or diesql("Couldn't commit transaction");

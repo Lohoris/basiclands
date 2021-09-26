@@ -41,7 +41,7 @@ $set and diex('Set named "'.$name.'" already exists');
 $set and diex('Set mcicd "'.$mcic.'" already exists');
 
 // sceglie l'order
-$query="SELECT `order` FROM {$OP}set ORDER BY `order` DESC LIMIT 1";
+$query="SELECT `order` FROM `set` ORDER BY `order` DESC LIMIT 1";
 $result=mysql_query($query) or diesql("Couldn't get current set.maxid");
 if (mysql_numrows($result)<1) {
 	$order=1;
@@ -60,7 +60,7 @@ else {
 	$ecode="NULL";
 }
 $mcico="'".mysql_real_escape_string($mcic)."'";
-$query="INSERT INTO {$OP}set (name, code, mci_code, `order`) VALUES ($ename, $ecode, $mcico, $order)";
+$query="INSERT INTO `set` (name, code, mci_code, `order`) VALUES ($ename, $ecode, $mcico, $order)";
 mysql_query($query) or diesql("Couldn't insert $ename:$ecode");
 $setid=mysql_insert_id();
 
@@ -78,7 +78,7 @@ do {
 		
 		$iis=$iism;
 		do {
-			$query="INSERT INTO {$OP}land (set_id, type) VALUES ($setid, $type)";
+			$query="INSERT INTO land (set_id, type) VALUES ($setid, $type)";
 			mysql_query($query) or diesql("Couldn't insert in $ename:$ecode:$mcico $setid:$type ($iic,$iism,$iis)");
 		} while (--$iis>0);
 	}

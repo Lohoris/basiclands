@@ -38,13 +38,13 @@ else {
 $db->begin() or diesql("Couldn't start transaction");
 
 if ($DO=="land") {
-	$query="UPDATE {$OP}land SET number=$number WHERE id=$land_id";
+	$query="UPDATE land SET number=$number WHERE id=$land_id";
 	mysql_query($query) or diesql("Couldn't update $land_id:$number");
 }
 else if ($DO=="spread") {
 	for ($land_id=$from; $land_id<=$to; $land_id++) {
 		$number++;
-		$query="UPDATE {$OP}land SET number=$number WHERE id=$land_id AND set_id=$set_id";
+		$query="UPDATE land SET number=$number WHERE id=$land_id AND set_id=$set_id";
 		mysql_query($query) or diesql("Couldn't update $land_id:$number in $set_id");
 	}
 }
@@ -59,7 +59,7 @@ else if ($DO=="toggle") {
 		$NV="got&~$lang_id";
 	}
 	
-	$query="UPDATE {$OP}land SET got=$NV WHERE id=$land_id";
+	$query="UPDATE land SET got=$NV WHERE id=$land_id";
 	mysql_query($query) or diesql("Couldn't update $land_id:$lang_id:$new_value");
 }
 

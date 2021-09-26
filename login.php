@@ -39,7 +39,7 @@ else if (isset($_GET["openid_mode"]) && ($_GET["openid_mode"]!="cancel")) {
 		$iname=mysql_real_escape_string($fname);
 		$imail=mysql_real_escape_string($email);
 		$istat=$user_status_r["user"];
-		$query="INSERT INTO {$OP}user (name, email, status, last_access, created_date) VALUES ('$iname', '$imail', $istat, NOW(), NOW())";
+		$query="INSERT INTO `user` (name, email, status, last_access, created_date) VALUES ('$iname', '$imail', $istat, NOW(), NOW())";
 		mysql_query($query) or diesql("Couldn't create user");
 		$uid=mysql_insert_id();
 	}

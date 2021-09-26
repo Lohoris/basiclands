@@ -1,10 +1,9 @@
 <?php
 
 function get_user ($id) {
-	global $OP;
 	$id=(int)$id;
 	if ($ret=get_cache_ar($id,"user")) return $ret;
-	$ret=get_complex("{$OP}user","WHERE id=$id","*,UNIX_TIMESTAMP(last_access) AS last_access_unix,UNIX_TIMESTAMP(created_date) AS created_date_unix");
+	$ret=get_complex("`user`","WHERE id=$id","*,UNIX_TIMESTAMP(last_access) AS last_access_unix,UNIX_TIMESTAMP(created_date) AS created_date_unix");
 	if ($ret) register_cache($ret,"user");
 	return $ret;	
 }
@@ -16,43 +15,35 @@ function arget_user ($t) {
 	return $ar;
 }
 function get_user_by_email ($email) {
-	global $OP;
 	$email=mysql_real_escape_string($email);
-	return get_complex("{$OP}user","WHERE email='$email'");
+	return get_complex("`user`","WHERE email='$email'");
 }
 
 function get_language_by_name ($name) {
-	global $OP;
 	$name=mysql_real_escape_string($name);
-	return get_complex("{$OP}language","WHERE name='$name'");
+	return get_complex("language","WHERE name='$name'");
 }
 function get_language_by_code ($code) {
-	global $OP;
 	$code=mysql_real_escape_string($code);
-	return get_complex("{$OP}language","WHERE code='$code'");
+	return get_complex("language","WHERE code='$code'");
 }
 function get_languages () {
-	global $OP;
-	return gets_complex("{$OP}language","ORDER BY id ASC");
+	return gets_complex("language","ORDER BY id ASC");
 }
 
 function get_set_by_name ($name) {
-	global $OP;
 	$name=mysql_real_escape_string($name);
-	return get_complex("{$OP}set","WHERE name='$name'");
+	return get_complex("`set`","WHERE name='$name'");
 }
 function get_set_by_code ($code) {
-	global $OP;
 	$code=mysql_real_escape_string($code);
-	return get_complex("{$OP}set","WHERE code='$code'");
+	return get_complex("`set`","WHERE code='$code'");
 }
 function get_set_by_mcic ($mcic) {
-	global $OP;
 	$mcic=mysql_real_escape_string($mcic);
-	return get_complex("{$OP}set","WHERE mci_code='$mcic'");
+	return get_complex("`set`","WHERE mci_code='$mcic'");
 }
 function get_sets ($ACTIVE=NULL, $REVERSE=TRUE) {
-	global $OP;
 	if ($REVERSE) $ORR="DESC";
 	else $ORR="ASC";
 	if ($ACTIVE===NULL) $WAC="";
@@ -61,17 +52,15 @@ function get_sets ($ACTIVE=NULL, $REVERSE=TRUE) {
 		if ($ACTIVE) $WAC.="1";
 		else $WAC.="0";
 	}
-	return gets_complex("{$OP}set","$WAC ORDER BY `order` $ORR");
+	return gets_complex("`set`","$WAC ORDER BY `order` $ORR");
 }
 function count_set_lands ($set) {
-	global $OP;
 	$sid=argi($set);
-	return count_complex("{$OP}land","WHERE set_id=$sid");
+	return count_complex("land","WHERE set_id=$sid");
 }
 function get_set ($id) {
-	global $OP;
 	$id=(int)$id;
-	return get_complex("{$OP}set","WHERE id=$id");
+	return get_complex("`set`","WHERE id=$id");
 }
 function arget_set ($t) {
 	if (is_array($t)) return $t;
@@ -82,8 +71,7 @@ function arget_set ($t) {
 }
 
 function get_lands () {
-	global $OP;
-	$lldb=gets_complex("{$OP}land","ORDER BY id");
+	$lldb=gets_complex("land","ORDER BY id");
 	$lset=array();
 	$lsor=array();
 	$lret=array();
@@ -116,7 +104,6 @@ function get_lands () {
 	return $lret;
 }
 function get_land ($id) {
-	global $OP;
 	$id=(int)$id;
-	return get_complex("{$OP}land","WHERE id=$id");
+	return get_complex("land","WHERE id=$id");
 }

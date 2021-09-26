@@ -9,8 +9,6 @@ $DB_CHAR = 'utf8mb4';
 $DB_USER = '';
 $DB_PASS = '';
 
-$OP='';
-
 $COOKIE_NAME = "$PROGNAME";
 $COOKIE_LIFE = 3600*24*30; // 30 giorni
 $COOKIE_PATH = "/";

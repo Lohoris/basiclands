@@ -23,7 +23,7 @@ $lang and diex('Language "'.$name.'" already exists');
 $lang and diex('Language coded "'.$code.'" already exists');
 
 // sceglie l'ID
-$query="SELECT id FROM {$OP}language ORDER BY id DESC LIMIT 1";
+$query="SELECT id FROM language ORDER BY id DESC LIMIT 1";
 $result=mysql_query($query) or diesql("Couldn't get current lang.maxid");
 if (mysql_numrows($result)<1) {
 	$newid=1;
@@ -36,7 +36,7 @@ else {
 // lo aggiunge
 $esname=mysql_real_escape_string($name);
 $escode=mysql_real_escape_string($code);
-$query="INSERT INTO {$OP}language (id, name, code) VALUES ($newid, '$esname', '$escode')";
+$query="INSERT INTO language (id, name, code) VALUES ($newid, '$esname', '$escode')";
 mysql_query($query) or diesql("Couldn't insert $newid:$name:$code");
 
 $db->commit() or diesql("Couldn't commit transaction");

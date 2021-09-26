@@ -21,7 +21,7 @@ else {
 	$NV="language&~$lang_id";
 }
 
-$query="UPDATE {$OP}set SET language=$NV WHERE id=$set_id";
+$query="UPDATE `set` SET language=$NV WHERE id=$set_id";
 mysql_query($query) or diesql("Couldn't update set $set_id:$lang_id:$new_value");
 
 $db->commit() or diesql("Couldn't commit transaction");

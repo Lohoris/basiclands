@@ -35,7 +35,7 @@ function logout ($id) {
 	
 	unset($_SESSION["uid"]);
 	
-	$query="UPDATE {$OP}user SET session=NULL WHERE id=$id";
+	$query="UPDATE `user` SET session=NULL WHERE id=$id";
 	if (!mysql_query($query)) return NULL;
 	
 	return TRUE;
@@ -46,7 +46,7 @@ function login ($id) {
 	$id=(int)$id;
 	$sid=mysql_real_escape_string(session_id());
 	
-	$query="UPDATE {$OP}user SET session='$sid', last_access=NOW() WHERE id=$id";
+	$query="UPDATE `user` SET session='$sid', last_access=NOW() WHERE id=$id";
 	if (!mysql_query($query)) return NULL;
 	
 	$_SESSION["uid"]=$id;
