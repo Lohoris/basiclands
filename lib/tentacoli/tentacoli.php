@@ -33,7 +33,7 @@ class germe {
 		<head profile="http://www.w3.org/2005/11/profile">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<link href="'.$liburl.'style.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="'.$LIBURL.'base.js"></script>
+		<script type="text/javascript" src="/script/base.js"></script>
 		<script type="text/javascript" src="'.$liburl.'tentacoli.js"></script>
 		<title>'.$title.'</title>
 		'.$head.'
