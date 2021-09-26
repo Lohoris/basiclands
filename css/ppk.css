@@ -1,0 +1,263 @@
+body {
+	background-color: #2c5b31;
+}
+
+/*
+textarea.textarea {
+	opacity:0.7;
+}
+textarea.textarea:focus {
+	opacity:1;
+}
+*/
+span.button {
+	border-width: 1px;
+}
+td.button {
+	border-left-width:0;
+	border-top-width:1px;
+	border-right-width:1px;
+	border-bottom-width:1px;
+}
+.button, .smallbutton {
+	color:#a7c29f;
+	background-color:rgba(33,78,41,0.9);
+	font-family:helvetica,sans-serif;
+	cursor: pointer;
+	padding:2px;
+}
+.button {
+	font-weight:bold;
+	font-size:0.85em !important;
+}
+.smallbutton {
+	font-weight:normal !important;
+	font-size:0.75em !important;
+}
+.yelb {
+	background-color:#4e4d21;
+}
+.button:hover {
+	opacity:0.8;
+}
+.ventosa {
+	/*
+	border:2px solid red;
+	*/
+}
+.serif {
+	font-family:serif;
+}
+.sans {
+	font-family:sans-serif;
+}
+div#show_land {
+	border: 1px solid #eeeeee;
+	background-color:rgba(238,204,204,0.8);
+}
+div#show_land div#show_land_image {
+	margin:1em;
+}
+.cur {
+	cursor: pointer;
+}
+
+span.ok, span.no {
+	color:white;
+	border:1px solid gray;
+}
+span.ok {
+	background-color:#196419;
+}
+span.no {
+	background-color:red;
+}
+
+
+/* ----==== FORM ====---- */
+
+table.form tr td, .textline, .textarea {
+	padding:1px;
+	border-width: 1px;
+}
+table.form tr th, table.form tr td, .button, .textline, .textarea, .texthead {
+	border-style: solid;
+	border-color: #A9A9A9;
+}
+table.form tr th, .texthead {
+	border-left-width:1px;
+	border-top-width:1px;
+	border-right-width:0;
+	border-bottom-width:1px;
+	background-color:#bed2b4;
+	font-weight:normal;
+	font-family:courier;
+}
+table.form tr td input, input.textmagic {
+	border:none;
+	color:inherit;
+	background-color:inherit;
+}
+table.form tr td, .textline, .textarea {
+	color:#214e29;
+	background-color:#a7c29f;
+}
+table.form tr td.spacer {
+	background:none;
+	border:none;
+}
+table.form caption, div.title, span.title {
+	text-align:center !important;
+	font-family:courier;
+	text-decoration:underline;
+}
+
+
+/* ----==== TODO°° MAGE ====---- */
+
+div.mage div.line span.th {
+	font-weight:normal;
+	text-align:right;
+	background-color:rgba(210,190,180,0.9);
+	font-family:courier;
+	font-size: 0.9em;
+	/*
+	border: 1px solid #777777;
+	border-right-width: 0;
+	*/
+}
+div.mage div.line span.td {
+	text-align:left;
+	background-color:rgba(167,194,159,0.8);
+	/*
+	border: 1px solid #777777;
+	border-left-width: 0;
+	*/
+}
+div.mage div.longline {
+	text-align:center;
+}
+div.mage div.line span.td input {
+	color:inherit;
+	background-color:rgba(177,204,169,0.9);
+}
+
+
+/* ----==== TABL ====---- */
+
+table.tabl tr th, table.tabl tr td {
+	border-style: solid;
+	border-color: #777777;
+}
+table.tabl tr th, table.tabl tr td {
+	font-size: 0.9em;
+	color:#111111;
+	font-weight:normal;
+}
+table.tabl tr th, .texthead_red {
+	background-color:rgba(210,190,180,0.9);
+}
+table.tabl tr td {
+	background-color:rgba(167,194,159,0.8);
+}
+table.tabl tr.shine td {
+	background-color:rgba(194,159,167,0.8);
+}
+table.tabl tr.have td {
+	background-color:rgba(163,194,159,0.8);
+}
+table.tabl tr.some td {
+	background-color:rgba(194,159,159,0.8);
+}
+table.tabl tr.zero td {
+	background-color:rgba(159,159,159,0.8);
+}
+table.tabl tr.allf th, table.tabl tr.onef th, table.tabl tr.anyf th, table.tabl tr.some th, table.tabl tr.zero th {
+	color:rgb(226,226,226);
+}
+table.tabl tr.allf th {
+	background-color:rgba(59,63,94,0.8);
+}
+table.tabl tr.onef th {
+	background-color:rgba(94,59,63,0.8);
+}
+table.tabl tr.anyf th {
+	background-color:rgba(63,94,59,0.8);
+}
+table.tabl tr.some th {
+	background-color:rgba(94,59,59,0.8);
+}
+table.tabl tr.zero th {
+	background-color:rgba(59,59,59,0.8);
+}
+table.tabl tr.tot th {
+	border-top: 1px solid black;
+	color:rgb(226,226,226);
+	background-color:rgba(29,29,59,0.8);
+	text-align:center;
+}
+table.tabl tr th, table.tabl tr td {
+	border-top: 1px solid #dddddd;
+}
+table.tabl caption {
+	border-top-width:   1px;
+	border-right-width: 1px;
+	border-left-width:  1px;
+	border-bottom-width:  0;
+	border-style:solid;
+	border-color: #553333;
+	font-weight:bold;
+	font-size:1.05em;
+	padding:1px;
+	background-color:rgba(150,100,100,0.8);
+	color:#333333;
+}
+table.tabl tr.sep td {
+	background:none;
+}
+table.tabl tr.sep:first-of-type {
+	display:none;
+}
+table.tabl tr td input {
+	color:inherit;
+	background-color:rgba(177,204,169,0.9);
+}
+table.tabl tr td .lla {
+	font-size: 0.65em !important;
+}
+
+/* ==== bordi ==== */
+
+table.tabl tr:first-of-type th,
+table.tabl tr:first-of-type td,
+table.tabl tr.sep + tr th,
+table.tabl tr.sep + tr td,
+table.tabl tr + tr.sep td
+{
+	border-top-width: 1px;
+	/* deve specificare anche le due seguenti perché è stupido */
+	border-style: solid;
+	border-color: #777777;
+}
+
+table.tabl tr:last-of-type th,
+table.tabl tr:last-of-type td
+{
+	border-bottom-width: 1px;
+}
+
+table.tabl tr th:first-of-type,
+table.tabl tr td:first-of-type
+{
+	border-left-width: 1px;
+}
+table.tabl tr th:last-of-type,
+table.tabl tr td:last-of-type
+{
+	border-right-width: 1px;
+}
+
+table.tabl tr.sep td {
+	border-left:none !important;
+	border-right:none !important;
+}
