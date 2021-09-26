@@ -1,5 +1,5 @@
 # basiclands
-A checklist for an MTC Basic Land collection :D
+A checklist for an MTG Basic Land collection :D
 
 ## History
 - I coded this in 2010-2011.
