@@ -2,10 +2,13 @@
 
 $PROGNAME="basiclist";
 
-$DB_SITE = NULL;
-$DB_NAME = NULL;
-$DB_USER = NULL;
-$DB_PASS = NULL;
+$DB_HOST = '127.0.0.1';
+$DB_PORT = 3306;
+$DB_NAME = '';
+$DB_CHAR = 'utf8mb4';
+$DB_USER = '';
+$DB_PASS = '';
+
 $OP='';
 
 $COOKIE_NAME = "$PROGNAME";
