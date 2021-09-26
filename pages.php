@@ -21,17 +21,19 @@ function base_germe () {
 function page_login () {
 	global $OPENID_URL,$OPENID_REQUIRED,$URL;
 	
+	/*
 	$openid=new LightOpenID;
 	$openid->identity=$OPENID_URL;
 	$openid->required=$OPENID_REQUIRED;
 	$openid->returnUrl=$URL."login";
+	*/
 	
 	// TODO…… eventualmente supportare anche un login classico con password
 	return '
 	'.vertical_align('<center>
 		<table cellpadding=4 cellspacing=0 border=0>
 			<tr><td colspan=2 class="center">
-				<a class="button" href="'.str_replace("&","&amp;",$openid->authUrl()).'">Login with Google</a>
+				<a class="button" href="'.str_replace("&","&amp;",/*$openid->authUrl()*/'').'">Login with Google</a>
 		</table>
 	</center>').'
 	';

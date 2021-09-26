@@ -43,14 +43,15 @@ function gets_complex ($FROM, $WHEREO="", $SELECT="*", $mode=NULL, $element=NULL
 	}
 	
 	$query="SELECT $SELECT FROM $FROM $WHEREO";
-	print_r(['qu',$query]);
-	$amt = $db->queryAmount($query);
+	$got = $db->fetchAll($query,[]);
 	
 	$ret=array();
-	if ( $amt==0 )
+	if ( count($got)<1 )
 		return $ret;
 	
-	while ($fet=$db->fetchRow()) {
+	while ($got) {
+		$fet = array_shift($got);
+		
 		if ($REAL_LIST)
 			$ret[$fet["id"]]=$fet["name"];
 		else if ($LIST)
@@ -66,8 +67,7 @@ function gets_complex ($FROM, $WHEREO="", $SELECT="*", $mode=NULL, $element=NULL
 	return $ret;
 }
 function count_complex ($FROM, $WHEREO="") {
-	global $OP,$query;
-	if (!$result=mysql_query($query="SELECT COUNT(*) AS count FROM $FROM $WHEREO")) return NULL;
-	if (!mysql_numrows($result)) return 0;
-	return mysql_result($result,0,"count");
+	global $query, $db;
+	$query="SELECT COUNT(*) AS count FROM $FROM $WHEREO";
+	return $db->queryAmount($query);
 }

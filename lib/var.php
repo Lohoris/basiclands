@@ -15,3 +15,30 @@ function vertical_align_end () {
 	</div>
 	';
 }
+
+function aasort (&$array, $key) {
+	$sorter=array();
+	$ret=array();
+	reset($array);
+	foreach ($array as $ii => $va) {
+		$sorter[$ii]=$va[$key];
+	}
+	asort($sorter);
+	foreach ($sorter as $ii => $va) {
+		$ret[$ii]=$array[$ii];
+	}
+	$array=$ret;
+}
+
+function argi ($arg) {
+	if (is_array($arg)) {
+		if (!isset($arg["id"])) {
+			return NULL;
+		}
+		return $arg["id"];
+	}
+	if (is_object($arg)) {
+		return $arg->id;
+	}
+	return (int)$arg;
+}

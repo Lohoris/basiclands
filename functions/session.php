@@ -29,7 +29,7 @@ function get_logged_user () {
 
 // NOTA: assumono che la sessione sia già iniziata
 function logout ($id) {
-	global $OP,$query;
+	global $query;
 	
 	$id=(int)$id;
 	
@@ -41,7 +41,7 @@ function logout ($id) {
 	return TRUE;
 }
 function login ($id) {
-	global $OP,$query;
+	global $query;
 	
 	$id=(int)$id;
 	$sid=mysql_real_escape_string(session_id());
