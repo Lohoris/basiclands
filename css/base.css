@@ -1,0 +1,126 @@
+/*	(c) 2006-2011 Lorenzo Petrone
+	use as you wish, as long as you give credits
+	I take no responsability for any reason
+*/
+
+img, a {
+	border:0pt none;
+}
+.big {
+	font-size:1.20em;
+}
+.small {
+	font-size:small;
+}
+.vsmall {
+	font-size:xx-small;
+}
+.smaller {
+	font-size:smaller;
+}
+.smallx {
+	font-size:xx-small;
+	vertical-align:sub;
+}
+.center {
+	text-align:center !important;
+}
+.justified {
+	text-align:justify;
+}
+.top {
+	vertical-align:top;
+}
+.bottom {
+	vertical-align:bottom;
+}
+.left {
+	text-align:left !important;
+}
+.middle {
+	vertical-align:middle;
+}
+.right {
+	text-align:right !important;
+}
+.abbr {
+	border-bottom:1px dotted;
+	cursor:help;
+}
+abbr {
+	cursor:help;
+}
+.nw {
+	white-space:nowrap;
+}
+.i {
+	font-style:italic;
+}
+.b {
+	font-weight:bold;
+}
+.u {
+	text-decoration:underline;
+}
+.sk {
+	text-decoration:line-through;
+}
+.fixed {
+	font-family:courier;
+}
+.sep {
+	height:0.5em;
+}
+.sepmore {
+	height:0.8em;
+}
+.separè {
+	margin-top:0.5em;
+	margin-bottom:1px;
+}
+.mseparè {
+	margin-top:0.3em;
+}
+.sep2 {
+	margin-top:0.85em;
+}
+td.separè {
+	height:0.5em;
+	margin-top:inherit;
+}
+.lh2 {
+	line-height:1.2em;
+}
+.lh3 {
+	line-height:1.5em;
+}
+.hidden {
+	display:none;
+}
+.padrl, .padr {
+	padding-right:6px !important;
+}
+.padrl, .padl {
+	padding-left:6px !important;
+}
+.uem {
+	width:1em;
+	height:1em;
+}
+.box {
+	border:1px solid black;
+	padding:0;
+}
+.p2 {
+	padding:2px;
+}
+
+.fl, .flm {
+	float:left;
+}
+.flm {
+	margin:4px;
+}
+div.clear {
+	clear: both;
+}

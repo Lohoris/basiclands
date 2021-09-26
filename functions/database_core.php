@@ -1,28 +1,12 @@
 <?php
 
 function connect () {
-	global $DB_SITE,$DB_NAME,$DB_USER,$DB_PASS;
-	if (!$res=mysql_connect($DB_SITE,$DB_USER,$DB_PASS)) return NULL;
-	if (!mysql_select_db($DB_NAME)) return NULL;
-	return $res;
-}
-function begin () {
-	global $query;
-	$query="BEGIN";
-	if (!mysql_query($query)) return NULL;
-	return TRUE;
-}
-function commit () {
-	global $query;
-	$query="COMMIT";
-	if (!mysql_query($query)) return NULL;
-	return TRUE;
-}
-function rollback () {
-	global $query;
-	$query="ROLLBACK";
-	if (!mysql_query($query)) return NULL;
-	return TRUE;
+	global $DB_HOST, $DB_PORT, $DB_NAME, $DB_CHAR, $DB_USER, $DB_PASS;
+	
+	$db = new simplePdoWrapper();
+	$db->ConnectMySQL( $DB_HOST, $DB_PORT, $DB_NAME, $DB_CHAR, $DB_USER, $DB_PASS );
+	
+	return $db;
 }
 
 function get_complex ($FROM, $WHEREO, $SELECT="*") {
@@ -39,7 +23,7 @@ function get_complex ($FROM, $WHEREO, $SELECT="*") {
 	return $ret;
 }
 function gets_complex ($FROM, $WHEREO="", $SELECT="*", $mode=NULL, $element=NULL, $elid="id") {
-	global $query;
+	global $query, $db;
 	
 	if ($SELECT=="LIST") {
 		$REAL_LIST=TRUE;
@@ -58,12 +42,15 @@ function gets_complex ($FROM, $WHEREO="", $SELECT="*", $mode=NULL, $element=NULL
 		$ELEM=TRUE;
 	}
 	
-	if (!$result=mysql_query($query="SELECT $SELECT FROM $FROM $WHEREO")) return NULL;
+	$query="SELECT $SELECT FROM $FROM $WHEREO";
+	print_r(['qu',$query]);
+	$amt = $db->queryAmount($query);
 	
 	$ret=array();
-	if (mysql_numrows($result)==0) return $ret;
-		
-	while ($fet=mysql_fetch_assoc($result)) {
+	if ( $amt==0 )
+		return $ret;
+	
+	while ($fet=$db->fetchRow()) {
 		if ($REAL_LIST)
 			$ret[$fet["id"]]=$fet["name"];
 		else if ($LIST)
@@ -76,7 +63,6 @@ function gets_complex ($FROM, $WHEREO="", $SELECT="*", $mode=NULL, $element=NULL
 			array_push($ret, $fet);
 	}
 	
-	mysql_free_result($result);
 	return $ret;
 }
 function count_complex ($FROM, $WHEREO="") {

@@ -4,7 +4,7 @@ require_once 'includes.php';
 
 checkref() or diex("Referrer error");
 start_session();
-connect() or diesql("Couldn't connect to database");
+$db=connect() or diesql("Couldn't connect to database");
 $logged=get_logged_user();
 
 if (isset($_GET["refresh"])) {
@@ -35,7 +35,7 @@ else {
 	$DO="land";
 }
 
-begin() or diesql("Couldn't start transaction");
+$db->begin() or diesql("Couldn't start transaction");
 
 if ($DO=="land") {
 	$query="UPDATE {$OP}land SET number=$number WHERE id=$land_id";
@@ -63,6 +63,6 @@ else if ($DO=="toggle") {
 	mysql_query($query) or diesql("Couldn't update $land_id:$lang_id:$new_value");
 }
 
-commit() or diesql("Couldn't commit transaction");
+$db->commit() or diesql("Couldn't commit transaction");
 
 ajaccio_post("$land_id\n$number\n$next_id\n".aja(div_checklist($land_id)));

@@ -1,0 +1,5 @@
+{
+    "require": {
+        "goblinsama/goblinsama-php": "dev-master"
+    }
+}

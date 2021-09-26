@@ -4,7 +4,7 @@ require_once 'includes.php';
 
 checkref() or diex("Referrer error");
 start_session();
-connect() or diesql("Couldn't connect to database");
+$db=connect() or diesql("Couldn't connect to database");
 $logged=get_logged_user();
 am_admin() or diex("Must be admin");
 
@@ -32,7 +32,7 @@ else {
 }
 if (array_search($DO,array("stretch","copy"))===FALSE) diex("Unknown mode: $DO");
 
-begin() or diesql("Couldn't start transaction");
+$db->begin() or diesql("Couldn't start transaction");
 
 // controlla che non ci sia già
 ($set=get_set_by_name($name))===NULL and diesql("Couldn't check set name");
@@ -84,6 +84,6 @@ do {
 	}
 } while(--$iic>0);
 
-commit() or diesql("Couldn't commit transaction");
+$db->commit() or diesql("Couldn't commit transaction");
 
 ajaccio_post(aja(div_set($setid))."\n".aja(div_checklist()));

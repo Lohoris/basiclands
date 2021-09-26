@@ -4,7 +4,7 @@ require_once 'includes.php';
 
 checkref() or diex("Referrer error");
 start_session();
-connect() or diesql("Couldn't connect to database");
+$db=connect() or diesql("Couldn't connect to database");
 $logged=get_logged_user();
 am_admin() or diex("Must be admin");
 
@@ -21,12 +21,12 @@ else {
 	diex("What's $what");
 }
 
-begin() or diesql("Couldn't start transaction");
+$db->begin() or diesql("Couldn't start transaction");
 
 $query="UPDATE {$OP}$table SET active=1-active WHERE id=$id";
 mysql_query($query) or diesql("Couldn't toggle active on $what:$id");
 
-commit() or diesql("Couldn't commit transaction");
+$db->commit() or diesql("Couldn't commit transaction");
 
 if ($what=="lang") {
 	ajaccio_post(aja(div_language($id)));

@@ -3,7 +3,7 @@
 require_once '../includes.php';
 
 start_session();
-connect() or diesql("Couldn't connect to database");
+$db=connect() or diesql("Couldn't connect to database");
 $logged=get_logged_user();
 am_admin() or diex("Must be admin");
 

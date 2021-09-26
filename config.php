@@ -6,7 +6,7 @@ $DB_SITE = NULL;
 $DB_NAME = NULL;
 $DB_USER = NULL;
 $DB_PASS = NULL;
-$OP=$PROGNAME."_";
+$OP='';
 
 $COOKIE_NAME = "$PROGNAME";
 $COOKIE_LIFE = 3600*24*30; // 30 giorni

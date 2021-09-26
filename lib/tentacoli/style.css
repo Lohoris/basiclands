@@ -1,0 +1,45 @@
+/*
+	(c) 2009-2011 Lorenzo Petrone.
+	
+	NO WARRANTIES OF ANY KIND FOR ANY REASON.
+	You may use this file, and this file only, as you wish, as long as you give credits.
+*/
+
+body {
+	font-family: Verdana, sans-serif;
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+}
+
+div.content_bg, div.content {
+	position:fixed;
+	overflow:hidden;
+}
+
+div.ventosa {
+	cursor:pointer;
+	overflow:visible;
+	position:absolute;
+}
+div.ventosa div.ventosa_icon {
+	display:none;
+}
+div.ventosa:hover div.ventosa_icon {
+	display:block;
+	text-align:center;
+	position:fixed;
+	overflow:hidden;
+}
+
+div#p8015buttons {
+	position:absolute;
+	bottom:0.5em;
+	right:0.5em;
+	width:90px;
+}
+div.p8015 {
+	float:right;
+	margin:1px;
+}

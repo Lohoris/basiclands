@@ -9,7 +9,7 @@
 require_once 'includes.php';
 
 $germ=base_germe();
-connect() or diesql("Couldn't connect to database");
+$db=connect() or diesql("Couldn't connect to database");
 
 if (isset($_GET["logout"])) {
 	checkref() or diex("Referrer error");

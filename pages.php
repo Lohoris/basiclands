@@ -8,8 +8,8 @@ function base_germe () {
 		ucfirst($PROGNAME),
 		'(c) 2010 Lorenzo Petrone, tutti i diritti riservati (all rights reserved).',
 		'
+		<link href="'.$CSS.'base.css" rel="stylesheet" type="text/css">
 		<link href="'.$CSS.'ppk.css" rel="stylesheet" type="text/css">
-		<link href="'.$LIBURL.'base.css" rel="stylesheet" type="text/css">
 		<link rel="icon" type="image/png" href="'.$IMG.'河童.png">
 		<script type="text/javascript" src="'.$JSURL.'ppk.js"></script>
 		<script type="text/javascript" src="'.$JSURL.'bl.js"></script>

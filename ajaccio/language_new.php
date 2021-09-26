@@ -4,7 +4,7 @@ require_once 'includes.php';
 
 checkref() or diex("Referrer error");
 start_session();
-connect() or diesql("Couldn't connect to database");
+$db=connect() or diesql("Couldn't connect to database");
 $logged=get_logged_user();
 am_admin() or diex("Must be admin");
 
@@ -14,7 +14,7 @@ $code=$_GET["code"];
 $name or diex("No name");
 $code or diex("No code");
 
-begin() or diesql("Couldn't start transaction");
+$db->begin() or diesql("Couldn't start transaction");
 
 // controlla che non ci sia già
 ($lang=get_language_by_name($name))===NULL and diesql("Couldn't check language name");
@@ -39,6 +39,6 @@ $escode=mysql_real_escape_string($code);
 $query="INSERT INTO {$OP}language (id, name, code) VALUES ($newid, '$esname', '$escode')";
 mysql_query($query) or diesql("Couldn't insert $newid:$name:$code");
 
-commit() or diesql("Couldn't commit transaction");
+$db->commit() or diesql("Couldn't commit transaction");
 
 ajaccio_post(aja(div_language($newid)));
