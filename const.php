@@ -4,6 +4,7 @@ $GC=array(
 	"land_default_repeat" => "pismf",
 	"land_default_amount" => 4,
 	"land_default_mode"   => "stretch",
+	'pref_lang'           => 'en',
 );
 
 $Land=array(

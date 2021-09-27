@@ -276,13 +276,26 @@ function div_set ($newid=NULL) {
 	return $ret;
 }
 function div_checklist ($newid=NULL) {
-	global $Land,$S;
+	global $Land,$S,$GC;
 	
 	if (($sets=get_sets(TRUE))===NULL) return NULL;
 	if (($lands=get_lands())===NULL) return NULL;
 	if (($langs=get_languages())===NULL) return NULL;
+	
+	$ret = '';
+	
 	$lls=sets_lands($sets,$lands);
 	$lan=active_languages($langs);
+	
+	$pref_lang_id = 0;
+	if ( $GC['pref_lang']??FALSE ) {
+		foreach ( $langs as $lang ) {
+			if ( $lang['code'] == $GC['pref_lang'] ) {
+				$pref_lang_id = $lang['id'];
+				break;
+			}
+		}
+	}
 	
 	// crea indici utili
 	$next_empty_land=array(); // mette in fila le terre il cui numero è mancante (per passare il focus)
@@ -326,7 +339,7 @@ function div_checklist ($newid=NULL) {
 	$next_empty_land[$eprev]=0;
 	
 	// titolo
-	$ret='
+	$ret.='
 	<p>
 	<div>
 		<span class="title">Lands</span>
@@ -348,9 +361,27 @@ function div_checklist ($newid=NULL) {
 		$count_any=0;
 		
 		foreach ($set["lands"] as $land) {
-			if ($land["got"]==0) $CL="zero";
-			else if (($land["got"]&$langf)==$langf) { $CL="have"; $count_any++; $count_all++; }
-			else { $CL="some"; $count_any++; }
+			if ($land["got"]==0) {
+				$CL="zero";
+			}
+			else {
+				if ( $pref_lang_id ) {
+					$HAVE = $land['got']&$pref_lang_id;
+				}
+				else {
+					$HAVE = ($land["got"]&$langf)==$langf;
+				}
+				
+				if ( $HAVE ) {
+					$CL="have";
+					$count_any++;
+					$count_all++;
+				}
+				else {
+					$CL="some";
+					$count_any++;
+				}
+			}
 			
 			$MOAR='';
 			if ($land["number"]) {
