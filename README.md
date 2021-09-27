@@ -21,3 +21,10 @@ The images included here are likely random placeholders.
 They might or might not have a license.
 
 They should be replaced with guaranteed free ones eventually.
+
+## Code
+As I mentioned, this is old code, resurrected as‑is, and so far only fixed the bare minimum to make it run.
+
+It's mostly bad code.
+
+Also it has comments in Italian (although variable and function names are all in English).

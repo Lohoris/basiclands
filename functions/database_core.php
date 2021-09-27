@@ -9,6 +9,7 @@ function connect () {
 	return $db;
 }
 
+// TODO; these should be nuked from orbit
 function get_complex ($FROM, $WHEREO, $SELECT="*") {
 	global $query;
 	
